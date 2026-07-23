@@ -350,7 +350,7 @@ button { font-family: inherit; cursor: pointer; }
 .faculty { background: var(--cream-2); }
 .faculty-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 22px; margin-top: 40px; }
 .faculty-card { background: var(--white); border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow-sm); text-align: center; padding-bottom: 18px; }
-.faculty-card img { width: 100%; height: 220px; object-fit: cover; object-position: top center; margin-bottom: 14px; }
+.faculty-card img { width: 100%; height: 320px; object-fit: cover; object-position: top center; margin-bottom: 14px; }
 .faculty-card h3 { font-size: 1.02rem; margin-bottom: 2px; padding: 0 12px; }
 .faculty-card p { font-size: 0.82rem; color: var(--ink-soft); margin: 0; padding: 0 12px; }
 @media (max-width: 900px) { .faculty-grid { grid-template-columns: repeat(2, 1fr); } }
