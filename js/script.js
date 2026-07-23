@@ -7,7 +7,7 @@
 // URL here after following README.md → "Google Sheet setup".
 // It looks like: https://script.google.com/macros/s/XXXXXXXX/exec
 // -------------------------------------------------------
-const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxIGxKbc-ddambRJ74179dTtUtDtn3gaEszIVrmIvH3nUCatooXQja6aX02DqNFxBSyUA/exec";
+const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwKzVVXUjSeYHrqswnpNE_o8-w1xrbF_qFNW3V-QLTotIFhno-0ViSvZILKVNO2M7EDJg/exec";
 
 document.addEventListener("DOMContentLoaded", function () {
   initHeaderScroll();
