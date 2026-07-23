@@ -403,6 +403,9 @@ button { font-family: inherit; cursor: pointer; }
 .site-footer { background: var(--ink); color: #C9C4D8; padding: 60px 0 0; }
 .footer-grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: 32px; padding-bottom: 40px; border-bottom: 1px solid rgba(255,255,255,0.12); }
 .brand-footer .brand-text { color: var(--white); }
+.brand-logo-chip {
+  display: inline-flex; align-items: center; background: var(--white); border-radius: 12px; padding: 10px 16px;
+}
 .footer-tag { margin-top: 12px; font-family: var(--font-display); font-style: italic; color: #FFD9E2; }
 .footer-col h4 { color: var(--white); font-family: var(--font-body); font-size: 0.82rem; text-transform: uppercase; letter-spacing: .06em; margin-bottom: 12px; }
 .footer-col p, .footer-col a { font-size: 0.9rem; color: #C9C4D8; }
