@@ -7,7 +7,7 @@
 // URL here after following README.md → "Google Sheet setup".
 // It looks like: https://script.google.com/macros/s/XXXXXXXX/exec
 // -------------------------------------------------------
-const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxIGxKbc-ddambRJ74179dTtUtDtn3gaEszIVrmIvH3nUCatooXQja6aX02DqNFxBSyUA/exec";
+const GOOGLE_SCRIPT_URL = "PASTE_YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL_HERE";
 
 document.addEventListener("DOMContentLoaded", function () {
   initHeaderScroll();
@@ -15,6 +15,8 @@ document.addEventListener("DOMContentLoaded", function () {
   initFaqAccordion();
   populateTrackingFields();
   initEnquiryForm();
+  initScrollReveal();
+  initCounters();
 });
 
 /* ---------- Sticky header background on scroll ---------- */
@@ -163,4 +165,86 @@ function initEnquiryForm() {
         submitBtn.textContent = "Submit Enquiry";
       });
   });
+}
+
+/* ---------- Scroll-reveal animation ---------- */
+function initScrollReveal() {
+  const items = document.querySelectorAll(".reveal");
+  if (!items.length) return;
+
+  const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if (prefersReduced || !("IntersectionObserver" in window)) {
+    items.forEach((el) => el.classList.add("is-visible"));
+    return;
+  }
+
+  // Stagger cards that share a parent grid/list, in DOM order.
+  const groups = new Map();
+  items.forEach((el) => {
+    const parent = el.parentElement;
+    if (!groups.has(parent)) groups.set(parent, []);
+    groups.get(parent).push(el);
+  });
+  groups.forEach((siblings) => {
+    siblings.forEach((el, i) => {
+      el.style.transitionDelay = Math.min(i * 0.08, 0.48) + "s";
+    });
+  });
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-visible");
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.15, rootMargin: "0px 0px -60px 0px" }
+  );
+  items.forEach((el) => observer.observe(el));
+}
+
+/* ---------- Animated number counters ---------- */
+function initCounters() {
+  const counters = document.querySelectorAll("[data-count-to]");
+  if (!counters.length) return;
+
+  const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  const animateCounter = (el) => {
+    const target = parseInt(el.getAttribute("data-count-to"), 10) || 0;
+    const suffix = el.getAttribute("data-suffix") || "";
+    if (prefersReduced) {
+      el.textContent = target + suffix;
+      return;
+    }
+    const duration = 1400;
+    const start = performance.now();
+    const step = (now) => {
+      const progress = Math.min((now - start) / duration, 1);
+      const eased = 1 - Math.pow(1 - progress, 3); // ease-out cubic
+      el.textContent = Math.round(target * eased) + suffix;
+      if (progress < 1) requestAnimationFrame(step);
+    };
+    requestAnimationFrame(step);
+  };
+
+  if (!("IntersectionObserver" in window)) {
+    counters.forEach(animateCounter);
+    return;
+  }
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          animateCounter(entry.target);
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.4 }
+  );
+  counters.forEach((el) => observer.observe(el));
 }
