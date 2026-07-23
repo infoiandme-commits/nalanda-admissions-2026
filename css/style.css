@@ -116,6 +116,7 @@ button { font-family: inherit; cursor: pointer; }
 }
 .header-inner { display: flex; align-items: center; justify-content: space-between; height: 76px; }
 .brand { display: flex; align-items: center; gap: 10px; }
+.brand-logo { height: 42px; width: auto; display: block; }
 .brand-mark { color: var(--crimson); display: inline-flex; }
 .site-header.scrolled .brand-mark, .site-footer .brand-mark { color: var(--crimson); }
 .hero .brand-mark { color: var(--white); }
