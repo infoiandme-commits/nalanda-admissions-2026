@@ -127,7 +127,7 @@ button { font-family: inherit; cursor: pointer; }
 
 .site-nav { display: flex; align-items: center; gap: 30px; }
 .site-nav a:not(.btn) {
-  font-weight: 600; font-size: 0.92rem; color: var(--white); position: relative; padding: 4px 0;
+  font-weight: 600; font-size: 0.92rem; color: #C81E4B; position: relative; padding: 4px 0;
 }
 .site-header.scrolled .site-nav a:not(.btn) { color: var(--ink); }
 .site-nav a:not(.btn)::after {
