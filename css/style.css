@@ -119,8 +119,8 @@ button { font-family: inherit; cursor: pointer; }
 .brand-mark { color: var(--crimson); display: inline-flex; }
 .site-header.scrolled .brand-mark, .site-footer .brand-mark { color: var(--crimson); }
 .hero .brand-mark { color: var(--white); }
-.site-header:not(.scrolled) .brand-mark { color: var(--white); }
-.brand-text { font-family: var(--font-display); font-weight: 600; font-size: 1.15rem; color: var(--white); }
+.site-header:not(.scrolled) .brand-mark { color: #C81E4B; }
+.brand-text { font-family: var(--font-display); font-weight: 600; font-size: 1.15rem; color: #C81E4B; }
 .site-header.scrolled .brand-text { color: var(--ink); }
 .brand-text em { font-style: normal; color: var(--gold); }
 .site-footer .brand-text { color: var(--white); }
@@ -181,7 +181,7 @@ button { font-family: inherit; cursor: pointer; }
 .hero-title { font-size: clamp(2.2rem, 4.4vw, 3.4rem); color: var(--white); }
 .ink-underline { position: relative; display: inline-block; }
 .ink-underline::after {
-  content: ""; position: absolute; left: 0; right: 0; bottom: 6px; height: 0.32em; background: var(--crimson);
+  content: ""; position: absolute; left: 0; right: 0; bottom: 6px; height: 0.32em; background: #00000000;
   z-index: -1; opacity: 0.85; border-radius: 2px;
 }
 .hero-sub { font-size: 1.08rem; color: #E9E4F0; max-width: 46ch; margin-bottom: 28px; }
