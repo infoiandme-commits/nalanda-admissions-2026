@@ -87,7 +87,7 @@ button { font-family: inherit; cursor: pointer; }
 .btn-primary:hover { background: var(--crimson-dark); transform: translateY(-2px); }
 .btn-outline { border-color: var(--ink); color: var(--ink); background: transparent; }
 .btn-outline:hover { background: var(--ink); color: var(--white); }
-.btn-lg { padding: 16px 32px; font-size: 1.05rem; }
+.btn-lg { padding: 15px 15px; font-size: 1.05rem; }
 .btn-block { width: 100%; }
 .btn-nav { padding: 10px 22px; font-size: 0.85rem; }
 
